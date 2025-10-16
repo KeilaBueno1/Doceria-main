@@ -31,6 +31,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Necessário para o posicionamento do menu */
 }
 
 header h1 {
@@ -38,17 +39,71 @@ header h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: bold;
+    z-index: 1001; /* Para garantir que o título fique acima do menu aberto */
+}
+
+/* Botão Hamburger */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-menu .bar {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--cor-secundaria);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+}
+
+/* Navegação (Menu) */
+header nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha os links no topo */
+    align-items: flex-start; /* Alinha os links à esquerda */
+    background: var(--cor-principal);
+    height: 100vh;
+    width: 300px; /* Largura do menu lateral */
+    max-width: 80%; /* Garante que não seja muito largo em telas pequenas */
+    padding: 6rem 2rem 2rem; /* Espaçamento: 6rem topo, 2rem lados, 2rem baixo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    z-index: 1000;
+}
+
+header nav.open {
+    transform: translateX(0);
 }
 
 header nav a {
     color: var(--cor-secundaria);
-    margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 header nav a:hover {
     color: var(--cor-acao);
+}
+
+header nav a {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
 }
 
 /* Banner */
@@ -118,79 +173,6 @@ header nav a:hover {
     color: var(--cor-texto);
     max-width: 600px;
     margin: 0 auto 15px;
-}
-
-/* Seção Produtos */
-#produtos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    max-width: 1200px; 
-    margin: 0 auto; 
-    text-align: center;
-}
-
-#produtos h2 {
-    color: var(--cor-secundaria);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-#produtos h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--cor-acao);
-    margin: 8px auto;
-}
-
-/* Estilo de Imagens */
-div.imagem {
-    background-color: rgba(51, 51, 51, 0.7);
-    color: var(--cor-texto-branco);
-    box-shadow: inset 6px 6px 13px rgba(0, 0, 0, 0.5);
-    background-attachment: fixed;
-    height: 400px;
-    width: 100%;
-    max-width: 800px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    margin: 10px;
-}
-
-.imagem.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-.imagem {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-div.imagem:hover {
-    transform: scale(1.02);
-}
-
-/* Imagens específicas */
-div#img01 { 
-    background-image: url('imagens/imagem1.jpg'); 
-}
-div#img02 { 
-    background-image: url('imagens/imagem2.jpg'); 
-}
-div#img03 { 
-    background-image: url('imagens/imagem3.jpg'); 
-}
-div#img04 { 
-    background-image: url('imagens/imagem4.jpg'); 
 }
 
 /* Seção Pedido */
@@ -322,10 +304,6 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-    
     #banner {
         height: 300px;
     }
@@ -333,4 +311,200 @@ footer {
     .imagem {
         height: 250px;
     }
+}
+
+/* Novas seções da Página Inicial */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.featured-products {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.featured-products h2 {
+    color: var(--cor-secundaria);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.featured-item {
+    background: var(--cor-principal);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.featured-item:hover {
+    transform: translateY(-10px);
+}
+
+.featured-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-item h4 {
+    color: var(--cor-texto-branco);
+    padding: 20px;
+    font-size: 1.4rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-branco);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.cta-section {
+    background-color: var(--cor-principal);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--cor-secundaria);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    color: var(--cor-texto-branco);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos da Página do Carrinho (pedidos.html) */
+.cart-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-container h2 {
+    text-align: center;
+    color: var(--cor-principal);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.cart-item-details h4 {
+    margin: 0;
+    color: var(--cor-secundaria);
+}
+
+.cart-item-details p {
+    margin: 5px 0 0;
+    color: var(--cor-texto);
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity button {
+    background: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cart-item-quantity span {
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#cart-summary {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-secundaria);
+}
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+    padding: 40px 0;
+}
+
+.customer-form-container {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid var(--cor-fundo);
+}
+
+.customer-form-container h3 {
+    text-align: center;
+    color: var(--cor-principal);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.customer-form-container form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.customer-form-container .cta-button {
+    width: 100%;
+    text-align: center;
 }

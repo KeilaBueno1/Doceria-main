@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça seu Pedido - Doces Artesanais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>5ª Dimensão</h1>
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-nav">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="enderecos.html">Endereços</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-container">
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items">
+                <!-- Os itens do carrinho serão inseridos aqui pelo JavaScript -->
+            </div>
+            <div id="cart-summary">
+                <!-- O resumo do carrinho será inserido aqui -->
+            </div>
+            
+            <div class="customer-form-container">
+            <h3>Finalizar Pedido</h3>
+            <form id="pedidoForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
+                
+                <button type="submit" class="cta-button">Enviar Pedido via WhatsApp</button>
+            </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Doces da Rose. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

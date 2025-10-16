@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Produtos - Doces Artesanais</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="produtos.css">
+</head>
+<body>
+    <!-- Cabeçalho (igual ao da página inicial) -->
+    <header>
+        <h1>5ª Dimensão</h1>
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-nav">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="enderecos.html">Endereços</a>
+        </nav>
+    </header>
+
+    <main class="container-produtos">
+        <div class="produtos-header">
+            <h1>Nossas Delícias</h1>
+            <p>Feitos com ingredientes selecionados e muito carinho.</p>
+        </div>
+
+        <div class="galeria-produtos">
+            <!-- Produto 1 -->
+            <div class="card-produto" data-id="1" data-name="Bolos de Festa" data-price="80.00">
+                <img src="imagens/imagem1.jpg" alt="Bolo de festa confeitado com frutas vermelhas.">
+                <h3>Bolos de Festa</h3>
+                <p class="descricao">Bolos personalizados para todas as ocasiões, com massas fofinhas e recheios cremosos.</p>
+                <p class="preco">A partir de R$ 80,00</p>
+                <button class="btn-pedir">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="card-produto" data-id="2" data-name="Brigadeiros Gourmet" data-price="4.00">
+                <img src="imagens/imagem2.jpg" alt="Vários brigadeiros gourmet de diferentes sabores.">
+                <h3>Brigadeiros Gourmet</h3>
+                <p class="descricao">Uma seleção irresistível de brigadeiros, do tradicional ao pistache.</p>
+                <p class="preco">R$ 4,00 / unidade</p>
+                <button class="btn-pedir">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="card-produto" data-id="3" data-name="Bolo de Pote" data-price="15.00">
+                <img src="imagens/imagem3.jpg" alt="Bolo de pote com camadas de creme e chocolate.">
+                <h3>Bolo de Pote</h3>
+                <p class="descricao">A felicidade em camadas! Perfeito para uma sobremesa rápida e deliciosa.</p>
+                <p class="preco">R$ 15,00</p>
+                <button class="btn-pedir">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="card-produto" data-id="4" data-name="Cocada Cremosa" data-price="8.00">
+                <img src="imagens/imagem4.jpg" alt="Cocadas cremosas cortadas em quadrados.">
+                <h3>Cocada Cremosa</h3>
+                <p class="descricao">A tradicional cocada com a cremosidade que derrete na boca. Sabor de infância.</p>
+                <p class="preco">R$ 8,00</p>
+                <button class="btn-pedir">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé (igual ao da página inicial) -->
+    <footer>
+        <p>&copy; 2024 Doces da Rose. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
